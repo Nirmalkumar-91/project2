@@ -1,9 +1,34 @@
 @import "bootstrap/scss/bootstrap";
 
 h1 {
-    color: red;
+    color: black;
 }
 
 .navbar {
-    background-color: rgb(194, 129, 129) !important;
+    background-color: black !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#navlogo{
+    color: white;
+    text-transform: uppercase;
+}
+#home-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
 }
