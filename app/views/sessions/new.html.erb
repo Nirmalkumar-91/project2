@@ -1,0 +1,29 @@
+<h1 class="text-center mt-4 mb-4">Log In</h1>
+
+<div class="container">
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+        <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+        <div class="form-group row justify-content-center">
+            <%= f.label :username, class: 'col-sm-2 col-form-label' %></br>
+            <div class="col-sm-8">
+            <%= f.text_field :username, class: 'form-control', placeholder: "Enter the User Name" %>
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <%= f.label :password, class: 'col-sm-2 col-form-label' %></br>
+            <div class="col-sm-8">
+            <%= f.password_field :password, class: 'form-control', placeholder: "Enter the Password" %>
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <%= f.submit "Log in", class: 'btn btn-outline-success' %>
+        </div>
+        <% end %>
+        </div>
+        <small ><%= link_to '[ Cancel and return to Home ]', root_path  %></small>
+    
+</div>
+
+</div>
