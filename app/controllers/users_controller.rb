@@ -42,9 +42,13 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        session[:user_id] = nil
+        session[:user_id] = nil if @user == current_user
         flash[:alert] = "Account and all associated articles sucessfully deleted"
-        redirect_to root_path
+        if current_user.admin?
+            redirect_to users_path
+        else
+            redirect_to root_path
+        end
     end
 
     private
@@ -58,8 +62,8 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @user
-            flash[:alert] = "You can only Edit your own profile"
+        if current_user != @user && !current_user.admin?
+            flash[:alert] = "You can only Edit or delete your own profile"
             redirect_to @user
         end
     end
