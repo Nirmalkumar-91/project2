@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     end
 
     def show
-       
         @article = @user.articles.paginate(page: params[:page], per_page: 5)
     end
     
@@ -63,7 +62,7 @@ class UsersController < ApplicationController
 
     def require_same_user
         if current_user != @user && !current_user.admin?
-            flash[:alert] = "You can only Edit or delete your own profile"
+            flash[:alert] = "You can only Edit or Delete your own profile"
             redirect_to @user
         end
     end
