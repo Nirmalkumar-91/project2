@@ -4,20 +4,9 @@
 
 <div class="row justify-content-center">
     <div class="col-sm-12">
-        <%= render "shared/errors", obj: @category %>
-        <%= form_with(model: @category, local: true) do |f| %>
-        <div class="form-group row justify-content-center mt-4">
-            <%= f.label :name, "Category Name:", class: 'col-sm-2 col-form-label' %></br>
-            <div class="col-sm-8">
-            <%= f.text_field :name, class: 'form-control', placeholder: "Enter a Name" %>
-            </div>
-        </div>
-        <div class="form-group row justify-content-center mt-4">
-            <%= f.submit class: 'btn btn-outline-success' %>
-        </div>
-        <% end %>
+        <%= render 'form' %>
     </div>
-    <small ><%= link_to '[ Cancel and return to Home ]', root_path  %></small>
+    <small ><%= link_to '[ Cancel and return to Categories Listing ]', categories_path  %></small>
 </div>
 
 </div>

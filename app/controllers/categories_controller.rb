@@ -1,6 +1,6 @@
-class CategoriesController < ApplicationController
-    before_action :require_user, only: [:new] 
-    before_action :require_admin_user, only: [:create]
+class CategoriesController < ApplicationController 
+    before_action :require_user, except: [:index, :show]
+    before_action :require_admin_user, except: [:index, :show]
     def new
         @category = Category.new
     end
@@ -25,6 +25,19 @@ class CategoriesController < ApplicationController
         @categories = @category.articles
     end
 
+    def edit 
+        @category = Category.find(params[:id])
+    end
+
+    def update
+        @category = Category.find(params[:id])
+        if @category.update(category_params)
+            flash[:notice] = "Category was succesfully updated"
+            redirect_to @category
+        else
+            render 'edit'
+        end
+    end
     private
 
     def category_params
