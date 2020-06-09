@@ -9,7 +9,7 @@
 <div class="flickr_pagination">
     <%= will_paginate @article, :container => false %>
 </div>
-<%= render 'articles/articles', obj_article: @user.articles %>
+<%= render 'articles/articles', obj_article: @article %>
 <div class="flickr_pagination mt-4 mb-4">
     <%= will_paginate @article, :container => false %>
 </div>
